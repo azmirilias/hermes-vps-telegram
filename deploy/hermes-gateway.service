@@ -1,0 +1,21 @@
+[Unit]
+Description=Hermes Agent gateway (Telegram + platforms)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=hermes
+Group=hermes
+Environment=HERMES_HOME=/home/hermes/.hermes
+ExecStart=/usr/local/bin/hermes gateway run
+Restart=always
+RestartSec=5
+# Hardening
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=full
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+
+[Install]
+WantedBy=multi-user.target

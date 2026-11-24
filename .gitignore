@@ -1,0 +1,13 @@
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+
+# Secrets — never commit
+.env
+.env.*
+!.env.hermes.example
+!.env.opencode.example
+
+# Logs
+*.log

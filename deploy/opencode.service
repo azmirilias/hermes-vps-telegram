@@ -1,0 +1,21 @@
+[Unit]
+Description=OpenCode
+After=network.target
+
+[Service]
+Type=simple
+User=opencode
+Group=opencode
+EnvironmentFile=/etc/opencode/.env
+WorkingDirectory=/home/opencode
+ExecStart=/opt/opencode/bin/opencode
+Restart=always
+RestartSec=5
+# Hardening
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=full
+ProtectHome=read-only
+
+[Install]
+WantedBy=multi-user.target
